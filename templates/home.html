@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Predictor</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px auto;
+            max-width: 1100px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .form_section {
+            flex: 1;
+            padding: 30px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        hr {
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Car Price Predictor</h1>
+    <div class="container">
+        <div class="form_section">
+            <form action="{{url_for('predict')}}" method="post">
+                <label for="present_price">Present Price (in lakhs) <sup>*</sup></label>
+                <input type="text" id="present_price" name="present_price" required>
+
+                <label for="kms_driven">How Many Kilometers Has the Car Driven?<sup>*</sup></label>
+                <input type="text" id="kms_driven" name="kms_driven" required>
+
+                <label for="fuel_type">Fuel Type <sup>*</sup></label>
+                <select id="fuel_type" name="fuel_type" required>
+                    <option value="">Select Fuel Type</option>
+                    <option value="2">Petrol</option>
+                    <option value="1">Diesel</option>
+                    <option value="0">CNG</option>
+                </select>
+
+                <label for="seller_type">Seller Type <sup>*</sup></label>
+                <select id="seller_type" name="seller_type" required>
+                    <option value="">Select Seller Type</option>
+                    <option value="0">Dealer</option>
+                    <option value="1">Individual</option>
+                </select>
+
+                <label for="transmission">Transmission <sup>*</sup></label>
+                <select id="transmission" name="transmission" required>
+                    <option value="">Select Car Type</option>
+                    <option value="1">Manual</option>
+                    <option value="0">Automatic</option>
+                </select>
+
+                <label for="owner">Owner <sup>*</sup></label>
+                <select id="owner" name="owner" required>
+                    <option value="">Select Owner Type</option>
+                    <option value="0">First</option>
+                    <option value="1">Second</option>
+                    <option value="3">Third</option>
+                </select>
+
+                <label for="age_of_car">Age of Car <sup>*</sup></label>
+                <input type="text" id="age_of_car" name="age_of_car" required>
+
+                <button type="submit">Predict</button>
+                <hr>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
